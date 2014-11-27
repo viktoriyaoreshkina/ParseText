@@ -5,27 +5,26 @@ import java.util.List;
 
 public class ParseText {
 
-   // protected List<String> sentences = new ArrayList<>();
+    // protected List<String> sentences = new ArrayList<>();
 
-    public String text = "-Is London a capital of Great Britain?\n-Yes, of course!\n- How many people live in London?\n- Near 2 568 078.";
-   // public List<String> arr = explode(text);
+    public static final String TEXT =
+            "-Is London a capital of Great Britain?\n" +
+                    "-Yes, of course!\n" +
+                    "- How many people live in London?\n" +
+                    "- Near 2 568 078.";
+    // public List<String> arr = explode(text);
 
-    public static List<String> explode(String s) {
-        List<String> arr = new ArrayList<String>();
-        for(int i = 0; i < s.length(); i++)
-        {
-            arr.add(i, String.valueOf(s.charAt(i)));
+    public static List<Character> explode(String s) {
+        List<Character> arr = new ArrayList<>();
+        for (int i = 0; i < s.length(); i++) {
+            arr.add(i, s.charAt(i));
             //  System.out.println(arr[1]);
         }
         return arr;
     }
 
-
     public static void main(String[] args) {
-     String text = "-Is London a capital of Great Britain?\n-Yes, of course?\n- How many people live in London?\n- Near 2 568 078";
-     //   System.out.println(text);
-
-        String[] t = text.split("\n");
+        String[] t = TEXT.split("\n");
         List<String> sentences = new ArrayList<>(); //add list of sentences
         String s = "";
         for (String c : t) {
@@ -45,14 +44,13 @@ public class ParseText {
         System.out.println(sentences);
 //------------------------------------------------------------------------------------
 
-
-        String[] t1 = text.split("\\s");
+        String[] t1 = TEXT.split("\\s");
         List<String> words = new ArrayList<>(); //add list of words
         String w = "";
         for (String c : t1) {
             words.add(c);
             w = w + c + " ";
-    //        System.out.println(c);
+            //        System.out.println(c);
         }
 
         System.out.println(words);
@@ -65,46 +63,29 @@ public class ParseText {
         });
         System.out.println(words);
 //------------------------------------------------------------------------------------
-        List<String> letters = explode(text);  //add list of letters
+        List<Character> letters = explode(TEXT);  //add list of letters
         System.out.println(letters);
 
-        Collections.sort(letters, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.toString().compareTo(o2.toString());
-            }
-        });
+        Collections.sort(letters);
         System.out.println(letters);
 
-        String ss= letters.toString();
+        String ss = letters.toString();
         System.out.println(ss);
         int k = 0;
 
-        for(int i=0; i<=(ss.length()+1); i++)
-        {
+        for (int i = 0; i <= (ss.length() + 1); i++) {
             String r1 = String.valueOf(ss.charAt(i));
-            String r2 = String.valueOf(ss.charAt(i+1));
-            if(r1.equals(r2))
-            {
+            String r2 = String.valueOf(ss.charAt(i + 1));
+            if (r1.equals(r2)) {
                 k = k + 1;
-                System.out.print("Символ "+r1+" повторяется"+k+" раз!"+"\n");
+                System.out.print("Символ " + r1 + " повторяется" + k + " раз!" + "\n");
             }
 
         }
 
-
-
-
     }
 
-
-
-
-
-
-
-
- //   private static final Map<Integer, String> regexes = new HashMap<>();
+    //   private static final Map<Integer, String> regexes = new HashMap<>();
 
    /* static { //сделать мапу, куда передавать сущности - абзацы, предложния, слова и т.п. и регексы
         regexes.put(Parameter, "\\n");
