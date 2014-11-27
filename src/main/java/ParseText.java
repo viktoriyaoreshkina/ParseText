@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ParseText {
 
@@ -15,10 +13,7 @@ public class ParseText {
 
     public static List<Character> explode(String s) {
         List<Character> arr = new ArrayList<>();
-        for (int i = 0; i < s.length(); i++) {
-            arr.add(i, s.charAt(i));
-            //  System.out.println(arr[1]);
-        }
+        for (char c : s.toCharArray()) arr.add(c);
         return arr;
     }
 
@@ -58,20 +53,14 @@ public class ParseText {
         Collections.sort(letters);
         System.out.println(letters);
 
-        String ss = letters.toString();
-        System.out.println(ss);
-        int k = 0;
-
-        for (int i = 0; i <= (ss.length() + 1); i++) {
-            String r1 = String.valueOf(ss.charAt(i));
-            String r2 = String.valueOf(ss.charAt(i + 1));
-            if (r1.equals(r2)) {
-                k = k + 1;
-                System.out.print("Символ " + r1 + " повторяется" + k + " раз!" + "\n");
-            }
-
+        Map<Character, Integer> characters = new TreeMap<>();
+        for (Character letter : letters) {
+            Integer counter = characters.get(letter);
+            if (counter != null) characters.put(letter, counter + 1);
+            else characters.put(letter, 1);
         }
 
+        System.out.println(characters);
     }
 
     //   private static final Map<Integer, String> regexes = new HashMap<>();
