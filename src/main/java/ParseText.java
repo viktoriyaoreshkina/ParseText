@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class ParseText {
@@ -35,12 +34,7 @@ public class ParseText {
         //System.out.println(sentences.get(1));  //test
         System.out.println(sentences);
 
-        Collections.sort(sentences, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.toString().compareTo(o2.toString());
-            }
-        });
+        Collections.sort(sentences);
         System.out.println(sentences);
 //------------------------------------------------------------------------------------
 
@@ -55,12 +49,7 @@ public class ParseText {
 
         System.out.println(words);
 
-        Collections.sort(words, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o2.toString().compareTo(o1.toString());
-            }
-        });
+        Collections.sort(words);
         System.out.println(words);
 //------------------------------------------------------------------------------------
         List<Character> letters = explode(TEXT);  //add list of letters
