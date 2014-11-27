@@ -7,8 +7,8 @@ public class ParseText {
 
    // protected List<String> sentences = new ArrayList<>();
 
-    protected String data = "abc";
-    public List<String> arr = explode(data);
+    public String text = "-Is London a capital of Great Britain?\n-Yes, of course!\n- How many people live in London?\n- Near 2 568 078.";
+   // public List<String> arr = explode(text);
 
     public static List<String> explode(String s) {
         List<String> arr = new ArrayList<String>();
@@ -75,6 +75,24 @@ public class ParseText {
             }
         });
         System.out.println(letters);
+
+        String ss= letters.toString();
+        System.out.println(ss);
+        int k = 0;
+
+        for(int i=0; i<=(ss.length()+1); i++)
+        {
+            String r1 = String.valueOf(ss.charAt(i));
+            String r2 = String.valueOf(ss.charAt(i+1));
+            if(r1.equals(r2))
+            {
+                k = k + 1;
+                System.out.print("Символ "+r1+" повторяется"+k+" раз!"+"\n");
+            }
+
+        }
+
+
 
 
     }
