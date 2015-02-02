@@ -5,7 +5,7 @@ public class ParseText {
     // protected List<String> sentences = new ArrayList<>();
 
     public static final String TEXT =
-            "-Is London a capital of Great Britain?\n" +
+            "-Is London a capital of Great Britain?&&&&&&&&&&&&&&&&&&&&&&&\n" +
                     "-Yes, of course!\n" +
                     "- How many people live in London?\n" +
                     "- Near 2 568 078.";
